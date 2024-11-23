@@ -1,0 +1,14 @@
+::ng-deep .hero.hero-slider .hero-slider-layout .hero-slide .hero-content {
+    max-width: max-content !important;
+}
+
+
+::ng-deep .article-post .article-featured-img {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    ::ng-deep .phone {
+        margin-top: 1rem;
+    }
+}

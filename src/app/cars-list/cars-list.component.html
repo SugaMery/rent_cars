@@ -1,0 +1,269 @@
+<app-header></app-header>
+    <!-- Page Header Start -->
+	<div class="page-header bg-section parallaxie">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<!-- Page Header Box Start -->
+                    <div class="col-lg-12">
+                        <!-- Boîte d'En-tête de Page Début -->
+                        <div class="page-header-box">
+                            <h1 class="text-anime-style-3" data-cursor="-opaque">Nos véhicules</h1>
+                            <nav class="wow fadeInUp">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="./">accueil</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">véhicules</li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <!-- Boîte d'En-tête de Page Fin -->
+                    </div>                    
+					<!-- Page Header Box End -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Page Header End -->
+
+    <!-- Page Fleets Start -->
+    <div class="page-fleets">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <!-- Fleets Sidebar Start -->
+                    <div class="fleets-sidebar wow fadeInUp">
+                        <!-- Fleets Search Box Start -->
+                        <div class="fleets-search-box">
+                            <form (submit)="onSearch(); $event.preventDefault()">
+                                <div class="form-group">
+                                  <input type="text" name="search" class="form-control" [(ngModel)]="searchQuery" id="search" placeholder="Search..." required>
+                                  <button type="submit" class="section-icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                </div>
+                              </form>
+                        </div>
+                        <!-- Fleets Search Box End -->
+
+                        <div class="fleets-sidebar-list-box">
+                            <!-- Fleets Sidebar List Start -->
+                            <div class="fleets-sidebar-list">
+                                <div class="fleets-list-title">
+                                  <h3>Categories</h3>
+                                </div>
+                              
+                                <ul>
+                                  <!-- "Tous" Checkbox -->
+                                  <li class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="all" id="checkboxTous" [(ngModel)]="selectedCategories['all']" (change)="filterByCategory()">
+                                    <label class="form-check-label" for="checkboxTous">Tous</label>
+                                  </li>
+                                
+                                  <!-- Category checkboxes -->
+                                  <li class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="4x4" id="checkbox4x4" [(ngModel)]="selectedCategories['4x4']" (change)="filterByCategory()">
+                                    <label class="form-check-label" for="checkbox4x4">4x4</label>
+                                  </li>
+                                  
+                                  <li class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Citadine" id="checkboxCitadine" [(ngModel)]="selectedCategories['Citadine']" (change)="filterByCategory()">
+                                    <label class="form-check-label" for="checkboxCitadine">Citadine</label>
+                                  </li>
+                                  
+                                  <li class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Berline" id="checkboxBerline" [(ngModel)]="selectedCategories['Berline']" (change)="filterByCategory()">
+                                    <label class="form-check-label" for="checkboxBerline">Berline</label>
+                                  </li>
+                                  
+                                  <li class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="SUV" id="checkboxSUV" [(ngModel)]="selectedCategories['SUV']" (change)="filterByCategory()">
+                                    <label class="form-check-label" for="checkboxSUV">SUV</label>
+                                  </li>
+                                </ul>
+                                
+                              </div>
+                              
+                            <!-- Fleets Sidebar List End -->
+
+                            <!-- Fleets Sidebar List Start -->
+                            <div class="fleets-sidebar-list">
+                                <div class="fleets-list-title">
+                                    <h3>lieu de départ</h3>
+                                </div>
+                            
+                                <ul>
+                                    <li class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkbox7">
+                                        <label class="form-check-label" for="checkbox7">Casablanca</label>
+                                    </li>
+                            
+                                    <li class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkbox8">
+                                        <label class="form-check-label" for="checkbox8">Rabat</label>
+                                    </li>
+                            
+                                    <li class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkbox9">
+                                        <label class="form-check-label" for="checkbox9">Marrakech</label>
+                                    </li>
+                            
+                                    <li class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkbox10">
+                                        <label class="form-check-label" for="checkbox10">Fès</label>
+                                    </li>
+                            
+                                    <li class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkbox11">
+                                        <label class="form-check-label" for="checkbox11">Tanger</label>
+                                    </li>
+                            
+                                    <li class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkbox12">
+                                        <label class="form-check-label" for="checkbox12">Agadir</label>
+                                    </li>
+                            
+                                    <li class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkbox13">
+                                        <label class="form-check-label" for="checkbox13">Meknès</label>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Fleets Sidebar List End -->
+
+                            <!-- Fleets Sidebar List Start -->
+                            <div class="fleets-sidebar-list">
+                                <div class="fleets-list-title">
+                                    <h3>lieu de retour</h3>
+                                </div>
+                            
+                                <ul>
+                                    <li class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkbox11">
+                                        <label class="form-check-label" for="checkbox11">Casablanca</label>
+                                    </li>
+                            
+                                    <li class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkbox12">
+                                        <label class="form-check-label" for="checkbox12">Rabat</label>
+                                    </li>
+                            
+                                    <li class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkbox13">
+                                        <label class="form-check-label" for="checkbox13">Marrakech</label>
+                                    </li>
+                            
+                                    <li class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkbox14">
+                                        <label class="form-check-label" for="checkbox14">Fès</label>
+                                    </li>
+                            
+                                    <li class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkbox15">
+                                        <label class="form-check-label" for="checkbox15">Tanger</label>
+                                    </li>
+                            
+                                    <li class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkbox16">
+                                        <label class="form-check-label" for="checkbox16">Agadir</label>
+                                    </li>
+                            
+                                    <li class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkbox17">
+                                        <label class="form-check-label" for="checkbox17">Meknès</label>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Fleets Sidebar List End -->
+                        </div>                        
+                    </div>
+                    <!-- Fleets Sidebar End -->
+                </div>
+                
+                <div class="col-lg-9">
+                    <!-- Fleets Collection Box Start -->
+                    <div class="fleets-collection-box">
+                        <div class="row">
+                            <div class="container">
+                                <div class="row">
+                                  <!-- Boucle sur chaque véhicule -->
+                                  <div *ngFor="let voiture of paginatedCars" class="col-lg-4 col-md-6 mb-4">
+                                    <!-- Perfect Fleets Item Start -->
+                                    <div class="perfect-fleet-item fleets-collection-item wow fadeInUp">
+                                      <!-- Image Box Start -->
+                                      <div class="image-box">
+                                        <img [src]="voiture.image" alt="{{ voiture.model }}">
+                                      </div>
+                                      <!-- Image Box End -->
+                              
+                                      <!-- Perfect Fleets Content Start -->
+                                      <div class="perfect-fleet-content">
+                                        <!-- Perfect Fleets Title Start -->
+                                        <div class="perfect-fleet-title">
+                                          <h3>{{ voiture.title }}</h3>
+                                          <h2>{{ voiture.title }}</h2>
+                                        </div>
+                                        <!-- Perfect Fleets Content End -->
+                              
+                                        <!-- Perfect Fleets Body Start -->
+                                        <div class="perfect-fleet-body">
+                                          <ul>
+                                            <li><img src="../../assets/images/icon-fleet-list-1.svg" alt=""> {{ voiture.fuel }} </li>
+                                            <li><img src="../../assets/images/icon-fleet-list-2.svg" alt=""> {{ voiture.year }} </li>
+                                            <li><img src="../../assets/images/icon-fleet-list-3.svg" alt=""> Bagages </li>
+                                            <li><img src="../../assets/images/icon-fleet-list-4.svg" alt=""> {{ voiture.transmission }} </li>
+                                          </ul>
+                                        </div>
+                                        <!-- Perfect Fleets Body End -->
+                              
+                                        <!-- Perfect Fleets Footer Start -->
+                                        <div class="perfect-fleet-footer">
+                                          <!-- Perfect Fleets Pricing Start -->
+                                          <div class="perfect-fleet-pricing">
+                                            <h2>{{ voiture.price }} \MAD<span>/day</span></h2>
+                                          </div>
+                                          <!-- Perfect Fleets Pricing End -->
+                              
+                                          <!-- Perfect Fleets Btn Start -->
+                                          <div class="perfect-fleet-btn">
+                                            <a [href]="'https://wa.me/+212699050501?text=' + generateWhatsAppMessage(voiture)" target="_blank" class="section-icon-btn">
+                                              <img src="../../assets/images/arrow-white.svg" alt="View Details"> 
+                                            </a>
+                                          </div>
+                                          <!-- Perfect Fleets Btn End -->
+                                        </div>
+                                        <!-- Perfect Fleets Footer End -->
+                                      </div>
+                                      <!-- Perfect Fleets Content End -->
+                                    </div>
+                                    <!-- Perfect Fleets Item End -->
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <div class="col-lg-12">
+                                <!-- Fleets Pagination Start -->
+                                <div class="fleets-pagination wow fadeInUp" data-wow-delay="0.5s">
+                                  <ul class="pagination">
+                                    <li (click)="previousPage()">
+                                      <a href="#"><i class="fa-solid fa-arrow-left-long"></i></a>
+                                    </li>
+                                    <li *ngFor="let page of [].constructor(totalPages); let i = index" 
+                                        [class.active]="i + 1 === currentPage">
+                                      <a href="#" (click)="changePage(i + 1)">{{ i + 1 }}</a>
+                                    </li>
+                                    <li (click)="nextPage()">
+                                      <a href="#"><i class="fa-solid fa-arrow-right-long"></i></a>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    <!-- Fleets Collection Box End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Fleets End -->  
+<app-footer></app-footer>
+<app-preloader></app-preloader>

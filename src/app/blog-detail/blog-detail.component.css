@@ -1,0 +1,14 @@
+.post-entry blockquote {
+    background: var(--secondary-color) url(../../assets/images/icon-blockquote.svg) no-repeat 25px 25px;
+    background-size: 45px;
+    border-radius: 40px;
+    padding: 30px 30px 30px 100px;
+    margin-bottom: 30px;
+}
+
+
+::ng-deep .post-entry p strong {
+    color: var(--white-color);
+    font-size: 18px;
+    font-weight: 600;
+}
